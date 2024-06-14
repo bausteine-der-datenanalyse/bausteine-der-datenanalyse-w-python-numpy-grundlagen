@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>w-python-numpy-grundlagen - 7&nbsp; Lesen und Schreiben von Dateien</title>
+<title>w-python-numpy-grundlagen - 8&nbsp; Arbeiten mit Bildern</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,24 +57,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../content/script/array_images.html" rel="next">
-<link href="../../content/script/array_manipulation.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../uebungen/uebung.html" rel="next">
+<link href="../skript/array_read_n_write.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/script/array_read_n_write.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lesen und Schreiben von Dateien</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skript/array_images.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbeiten mit Bildern</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -130,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">w-python-numpy-grundlagen</a> 
+      <a href="../">w-python-numpy-grundlagen</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -142,61 +142,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preamble</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/script/einleitung.html" class="sidebar-item-text sidebar-link">
+  <a href="../skript/einleitung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung NumPy</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/script/array_creation.html" class="sidebar-item-text sidebar-link">
+  <a href="../skript/array_creation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Erstellen von numpy arrays</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/script/array_info.html" class="sidebar-item-text sidebar-link">
+  <a href="../skript/array_info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Größe und Struktur</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/script/array_calculation.html" class="sidebar-item-text sidebar-link">
+  <a href="../skript/array_calculation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Rechnen mit Arrays</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/script/array_slicing.html" class="sidebar-item-text sidebar-link">
+  <a href="../skript/array_slicing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Slicing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/script/array_manipulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../skript/array_manipulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Array Manipulation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/script/array_read_n_write.html" class="sidebar-item-text sidebar-link active">
+  <a href="../skript/array_read_n_write.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lesen und Schreiben von Dateien</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/script/array_images.html" class="sidebar-item-text sidebar-link">
+  <a href="../skript/array_images.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbeiten mit Bildern</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/uebungen/uebung.html" class="sidebar-item-text sidebar-link">
+  <a href="../uebungen/uebung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Übung</span></span></a>
   </div>
 </li>
@@ -206,21 +206,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Inhaltsverzeichnis</h2>
-   
-  <ul>
-  <li><a href="#lesen-von-dateien" id="toc-lesen-von-dateien" class="nav-link active" data-scroll-target="#lesen-von-dateien"><span class="header-section-number">7.1</span> Lesen von Dateien</a></li>
-  <li><a href="#schreiben-von-dateien" id="toc-schreiben-von-dateien" class="nav-link" data-scroll-target="#schreiben-von-dateien"><span class="header-section-number">7.2</span> Schreiben von Dateien</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lesen und Schreiben von Dateien</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbeiten mit Bildern</span></h1>
 </div>
 
 
@@ -237,91 +230,124 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Das Modul numpy stellt Funktionen zum Lesen und Schreiben von strukturierten Textdateien bereit.</p>
-<section id="lesen-von-dateien" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="lesen-von-dateien"><span class="header-section-number">7.1</span> Lesen von Dateien</h2>
-<p>Zum Lesen von strukturierten Textdateien, z.B. im CSV-Format (comma separated values), kann die <code>np.loadtxt()</code>-Funktion verwendet werden. Diese bekommt als Argumente den einzulesenden Dateinamen und weitere Optionen zur Definition der Struktur der Daten. Der Rückgabewert ist ein (mehrdimensionales) Array.</p>
-<p>Im folgenden Beispiel wird die Datei <a href="https://firedynamics.github.io/LectureComputerScience/_downloads/0d1a3bfbc82fa134e08585d6151e9f46/TC01.csv">TC01.csv</a> eingelesen und deren Inhalt graphisch dargestellt. Die erste Zeile der Datei wird dabei ignoriert, da sie als Kommentar – eingeleitet durch das #-Zeichen – interpretiert wird.</p>
-<div id="a2ffae36" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dateiname <span class="op">=</span> <span class="st">'TC01.csv'</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>daten <span class="op">=</span> np.loadtxt(dateiname)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bilder werden digital als Matrizen gespeichert. Dabei werden pro Pixel drei Farbwerte (rot, grün, blau) gespeichert. Aus diesen drei Farbwerten (Wert 0-255) werden dann alle gewünschten Farben zusammengestellt.</p>
+<div id="fig-pixel_colors" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Schaubild, was zeigt, dass ein hochaufgelöstes Bild der Mona Lisa aus einzelnen Pixeln besteht, welche wiederum aus den drei Farben blau, rot und grün zusammengesetzt sind">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pixel_colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../skript/00-bilder/pixel_mona_lisa_split.svg" class="img-fluid figure-img" alt="Schaubild, was zeigt, dass ein hochaufgelöstes Bild der Mona Lisa aus einzelnen Pixeln besteht, welche wiederum aus den drei Farben blau, rot und grün zusammengesetzt sind">
 </div>
-<div id="8d52ca34" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Daten:"</span>, daten)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Form:"</span>, daten.shape)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pixel_colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;8.1: Ein hochaufgelöstes Bild besteht aus sehr vielen Pixeln. Jedes Pixel enthät 3 Farbwerte, einen für die Fabre Grün, einen für Blau und einen für Rot.
+</figcaption>
+</figure>
+</div>
+<p>Aufgrund der digitalen Darstellung von Bildern lassen sich diese mit den Werkzeugen von NumPy leicht bearbeiten. Wir verwenden für folgendes Beispiel als Bild die Monas Lisa. Das Bild ist unter folgendem <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mona_Lisa.jpg/677px-Mona_Lisa.jpg">Link</a> zu finden.</p>
+<p>Importieren wir dieses Bild nun mit der Funktion <code>imread()</code>aus dem matplotlib-package, sehen wir das es um ein dreidimensionales numpy Array handelt.</p>
+<div id="bc982b68" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> plt.imread(<span class="st">"00-bilder/mona_lisa.jpg"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Form:"</span>, data.shape)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Daten: [20.1 20.1 20.1 ... 24.3 24.2 24.2]
-Form: (1513,)</code></pre>
+<pre><code>Form: (1024, 677, 3)</code></pre>
 </div>
 </div>
-<div id="21c1fb65" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.plot(daten)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Datenindex'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Temperatur in °C'</span>)<span class="op">;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Schauen wir uns einmal mit der <code>print()</code>-Funktion einen Ausschnitt dieser Daten an.</p>
+<div id="108907e9" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[[ 68  62  38]
+  [ 88  82  56]
+  [ 92  87  55]
+  ...
+  [ 54  97  44]
+  [ 68 110  60]
+  [ 69 111  63]]
+
+ [[ 65  59  33]
+  [ 68  63  34]
+  [ 83  78  46]
+  ...
+  [ 66 103  51]
+  [ 66 103  52]
+  [ 66 102  56]]
+
+ [[ 97  90  62]
+  [ 87  80  51]
+  [ 78  72  38]
+  ...
+  [ 79 106  53]
+  [ 62  89  38]
+  [ 62  88  41]]
+
+ ...
+
+ [[ 25  14  18]
+  [ 21  10  14]
+  [ 20   9  13]
+  ...
+  [ 11   5   9]
+  [ 11   5   9]
+  [ 10   4   8]]
+
+ [[ 23  12  16]
+  [ 23  12  16]
+  [ 21  10  14]
+  ...
+  [ 11   5   9]
+  [ 11   5   9]
+  [ 10   4   8]]
+
+ [[ 22  11  15]
+  [ 26  15  19]
+  [ 24  13  17]
+  ...
+  [ 11   5   9]
+  [ 10   4   8]
+  [  9   3   7]]]</code></pre>
+</div>
+</div>
+<p>Mit der Funktion <code>plt.imshow</code> kann das Bild in Echtfarben dargestellt werden. Dies funktioniert, da die Funktion die einzelnen Ebenen, hier der letzte Index, des Datensatzes als Farbinformationen (rot, grün, blau) interpretiert. Wäre noch eine vierte Ebene dabei, würde sie als individueller Transparenzwert verwendet worden.</p>
+<div id="f4139423" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(data)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="array_read_n_write_files/figure-html/cell-5-output-1.png" width="585" height="429" class="figure-img"></p>
+<p><img src="array_images_files/figure-html/cell-5-output-1.png" width="307" height="416" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="schreiben-von-dateien" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="schreiben-von-dateien"><span class="header-section-number">7.2</span> Schreiben von Dateien</h2>
-<p>Zum Schreiben von Arrays in Dateien, kann die in numpy verfügbare Funktion <code>np.savetxt()</code> verwendet werden. Dieser müssen mindestens die zu schreibenden Arrays als auch ein Dateiname übergeben werden. Darüber hinaus sind zahlreiche Formatierungs- bzw. Strukturierungsoptionen möglich.</p>
-<p>Folgendes Beispiel skaliert die oben eingelesenen Daten und schreib jeden zehnten Wert in eine Datei. Dabei wird auch ein Kommentar (<code>header</code>-Argument) am Anfang der Datei erzeugt. Das Ausgabeformat der Zahlen kann mit dem <code>fmt</code>-Argument angegeben werden. Das Format ähnelt der Darstellungsweise, welche bei den formatierten Zeichenketten vorgestellt wurde.</p>
-<div id="e9ccc172" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wertebereich <span class="op">=</span> np.<span class="bu">max</span>(daten) <span class="op">-</span> np.<span class="bu">min</span>(daten)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>daten_skaliert <span class="op">=</span> ( daten <span class="op">-</span> np.<span class="bu">min</span>(daten) ) <span class="op">/</span> wertebereich</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>daten_skaliert <span class="op">=</span> daten_skaliert[::<span class="dv">10</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="65303f51" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Datenindex'</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Skalierte Temperatur'</span>)<span class="op">;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Natürlich können auch die einzelnen Farbebenen individuell betrachtet werden. Dazu wird der letzte Index festgehalten.</p>
+<div id="d8b2bb1d" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Als Farbskale wird die Rotskala </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># verwendet 'Reds'</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.imshow( data[:,:,<span class="dv">0</span>], cmap<span class="op">=</span><span class="st">'Reds'</span> )</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="array_read_n_write_files/figure-html/cell-7-output-1.png" width="600" height="434" class="figure-img"></p>
+<p><img src="array_images_files/figure-html/cell-6-output-1.png" width="386" height="416" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Beim Schreiben der Datei wird ein mehrzeiliger Kommentar mithilfe des Zeilenumbruchzeichens <code>\n</code> definiert. Die Ausgabe der Gleitkommazahlen wird mit <code>%5.2f</code> formatiert, was 5 Stellen insgesamt und zwei Nachkommastellen entspricht.</p>
-<div id="15f1cc1c" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zuweisung ist auf mehrere Zeilen aufgeteilt, aufgrund der </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># schmalen Darstellung im Skript</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>kommentar <span class="op">=</span> <span class="ss">f'Daten aus </span><span class="sc">{</span>dateiname<span class="sc">}</span><span class="ss"> skaliert auf den Beriech'</span> <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">'0 bis 1</span><span class="ch">\n</span><span class="st">originales Min / Max:'</span> <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f'</span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">min</span>(daten)<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(daten)<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>neu_dateiname <span class="op">=</span> <span class="st">'TC01_skaliert.csv'</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>np.savetxt(neu_dateiname, daten_skaliert, </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>           header<span class="op">=</span>kommentar, fmt<span class="op">=</span><span class="st">'</span><span class="sc">%5.2f</span><span class="st">'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Da die Bilddaten als Arrays gespeichert sind, sind viele der möglichen Optionen, z.B. zur Teilauswahl oder Operationen, verfügbar. Das untere Beispiel zeigt einen Ausschnitt im Rotkanal des Bildes.</p>
+<div id="fa5a9302" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bereich <span class="op">=</span> np.array(data[<span class="dv">450</span>:<span class="dv">500</span>, <span class="dv">550</span>:<span class="dv">600</span>,<span class="dv">0</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.imshow( bereich, cmap<span class="op">=</span><span class="st">"Greys"</span> )</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="array_images_files/figure-html/cell-7-output-1.png" width="494" height="412" class="figure-img"></p>
+</figure>
 </div>
-<p>Zum Veranschaulichen werden die ersten Zeilen der neuen Datei ausgegeben.</p>
-<div id="2723d59c" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Einlesen der ersten Zeilen der neu erstellten Datei</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>datei <span class="op">=</span> <span class="bu">open</span>(neu_dateiname, <span class="st">'r'</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>( datei.readline() , end<span class="op">=</span><span class="st">''</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>datei.close()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Daten aus TC01.csv skaliert auf den Beriech0 bis 1
-# originales Min / Max:20.1/31.1
- 0.00
- 0.00
- 0.00
- 0.01
- 0.01
- 0.01
- 0.01
- 0.01</code></pre>
 </div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -735,13 +761,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/script/array_manipulation.html" class="pagination-link" aria-label="Array Manipulation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Array Manipulation</span></span>
+      <a href="../skript/array_read_n_write.html" class="pagination-link" aria-label="Lesen und Schreiben von Dateien">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lesen und Schreiben von Dateien</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/script/array_images.html" class="pagination-link" aria-label="Arbeiten mit Bildern">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbeiten mit Bildern</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../uebungen/uebung.html" class="pagination-link" aria-label="Übung">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Übung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
