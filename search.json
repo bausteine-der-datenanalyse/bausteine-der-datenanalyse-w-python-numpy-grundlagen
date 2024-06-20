@@ -220,6 +220,26 @@
     ]
   },
   {
+    "objectID": "skript/assessment.html",
+    "href": "skript/assessment.html",
+    "title": "9  Lernzielkontrolle",
+    "section": "",
+    "text": "9.1 Aufgabe 1\nErstellen Sie mit Hilfe von NumPy die folgenden Arrays:",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Lernzielkontrolle</span>"
+    ]
+  },
+  {
+    "objectID": "skript/assessment.html#aufgabe-1",
+    "href": "skript/assessment.html#aufgabe-1",
+    "title": "9  Lernzielkontrolle",
+    "section": "",
+    "text": "Ein eindimensionales Array, das die Zahlen von 0 bis 9 enthält.\nEin zweidimensionales Array der Form 3×33×3, das nur aus Einsen besteht.\nEin eindimensionales Array, das die Zahlen von 10 bis 50 (einschließlich) in Schritten von 5 enthält.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Lernzielkontrolle</span>"
+    ]
+  },
+  {
     "objectID": "uebungen/uebung.html",
     "href": "uebungen/uebung.html",
     "title": "10  Übung",
