@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>w-python-numpy-grundlagen - 11&nbsp; Klausurfragen</title>
+<title>w-python-numpy-grundlagen - 8&nbsp; Arbeiten mit Bildern</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../uebungen/uebung.html" rel="prev">
+<link href="../skript/assessment.html" rel="next">
+<link href="../skript/array_read_n_write.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,35 +103,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -109,7 +115,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../klausurfragen/klausurfragen.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Klausurfragen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../skript/array_images.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbeiten mit Bildern</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -188,7 +194,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../skript/array_images.html" class="sidebar-item-text sidebar-link">
+  <a href="../skript/array_images.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbeiten mit Bildern</span></span></a>
   </div>
 </li>
@@ -206,7 +212,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../klausurfragen/klausurfragen.html" class="sidebar-item-text sidebar-link active">
+  <a href="../klausurfragen/klausurfragen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Klausurfragen</span></span></a>
   </div>
 </li>
@@ -216,20 +222,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Inhaltsverzeichnis</h2>
-   
-  <ul>
-  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1">Aufgabe 1</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/bausteine-der-datenanalyse/w-python-numpy-grundlagen/blob/main/klausurfragen/klausurfragen.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Klausurfragen</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbeiten mit Bildern</span></h1>
 </div>
 
 
@@ -246,27 +246,185 @@ window.Quarto = {
 </header>
 
 
-<section id="aufgabe-1" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
-<p>Ein rechteckiger Träger aus Beton wird entlang seiner Länge mit einer gleichmäßig verteilten Last belastet. Die Spannungsverteilung entlang der Länge des Trägers soll analysiert werden. Der Träger hat eine Länge von 10 Metern und eine Breite von 0.3 Metern. Die Höhe des Trägers beträgt 0.5 Meter. Die gleichmäßig verteilte Last beträgt 5000 N/m.</p>
-<ol type="1">
-<li><p>Erstellen Sie ein NumPy-Array <code>x</code> mit 100 gleichmäßig verteilten Punkten entlang der Länge des Trägers von 0 bis 10 Metern.</p></li>
-<li><p>Berechnen Sie die Biegemomente <span class="math inline">\(M(x)\)</span> entlang der Länge des Trägers unter Verwendung der Formel: <span class="math display">\[
-\left[M(x) = \frac{w \cdot x \cdot (L - x)}{2}\right]
-\]</span> wobei <span class="math inline">\(w\)</span>$ die verteilte Last (in N/m), <span class="math inline">\(x\)</span> die Position entlang des Trägers (in m) und <span class="math inline">\(L\)</span> die Länge des Trägers (in m) ist.</p></li>
-<li><p>Berechnen Sie die maximale Biegespannung σmaxσmax​ an jedem Punkt entlang des Trägers unter Verwendung der Formel: <span class="math display">\[
-\left[\sigma_{\text{max}}(x) = \frac{M(x) \cdot c}{I}\right]
-\]</span> wobei cc der Abstand von der neutralen Faser zur äußersten Faser des Trägers ist (in m) und <span class="math inline">\(I\)</span> das Flächenträgheitsmoment ist. Das Flächenträgheitsmoment eines rechteckigen Querschnitts ist: <span class="math display">\[
-\left[
-I = \frac{b \cdot h^3}{12}
-\right]
-\]</span> wobei <span class="math inline">\(b\)</span> die Breite (in m) und <span class="math inline">\(h\)</span> die Höhe des Trägers (in m) ist.</p></li>
-<li><p>Bestimmen SIe die maximale Biegespannung</p></li>
-<li><p>Plotten Sie die Spannungsverteilung <span class="math inline">\(\sigma_{max}​(x)\)</span> entlang der Länge des Trägers.</p></li>
-</ol>
+<p>Bilder werden digital als Matrizen gespeichert. Dabei werden pro Pixel drei Farbwerte (rot, grün, blau) gespeichert. Aus diesen drei Farbwerten (Wert 0-255) werden dann alle gewünschten Farben zusammengestellt.</p>
+<div id="fig-pixel_colors" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Schaubild, was zeigt, dass ein hochaufgelöstes Bild der Mona Lisa aus einzelnen Pixeln besteht, welche wiederum aus den drei Farben blau, rot und grün zusammengesetzt sind">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pixel_colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../skript/00-bilder/pixel_mona_lisa_split.svg" class="img-fluid figure-img" alt="Schaubild, was zeigt, dass ein hochaufgelöstes Bild der Mona Lisa aus einzelnen Pixeln besteht, welche wiederum aus den drei Farben blau, rot und grün zusammengesetzt sind">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pixel_colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;8.1: Ein hochaufgelöstes Bild besteht aus sehr vielen Pixeln. Jedes Pixel enthät 3 Farbwerte, einen für die Fabre Grün, einen für Blau und einen für Rot.
+</figcaption>
+</figure>
+</div>
+<p>Aufgrund der digitalen Darstellung von Bildern lassen sich diese mit den Werkzeugen von NumPy leicht bearbeiten. Wir verwenden für folgendes Beispiel als Bild die Monas Lisa. Das Bild ist unter folgendem <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mona_Lisa.jpg/677px-Mona_Lisa.jpg">Link</a> zu finden.</p>
+<p>Importieren wir dieses Bild nun mit der Funktion <code>imread()</code>aus dem matplotlib-package, sehen wir das es um ein dreidimensionales numpy Array handelt.</p>
+<div id="a8171620" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> plt.imread(<span class="st">"00-bilder/mona_lisa.jpg"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Form:"</span>, data.shape)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Form: (1024, 677, 3)</code></pre>
+</div>
+</div>
+<p>Schauen wir uns einmal mit der <code>print()</code>-Funktion einen Ausschnitt dieser Daten an.</p>
+<div id="f74a8264" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[[ 68  62  38]
+  [ 88  82  56]
+  [ 92  87  55]
+  ...
+  [ 54  97  44]
+  [ 68 110  60]
+  [ 69 111  63]]
+
+ [[ 65  59  33]
+  [ 68  63  34]
+  [ 83  78  46]
+  ...
+  [ 66 103  51]
+  [ 66 103  52]
+  [ 66 102  56]]
+
+ [[ 97  90  62]
+  [ 87  80  51]
+  [ 78  72  38]
+  ...
+  [ 79 106  53]
+  [ 62  89  38]
+  [ 62  88  41]]
+
+ ...
+
+ [[ 25  14  18]
+  [ 21  10  14]
+  [ 20   9  13]
+  ...
+  [ 11   5   9]
+  [ 11   5   9]
+  [ 10   4   8]]
+
+ [[ 23  12  16]
+  [ 23  12  16]
+  [ 21  10  14]
+  ...
+  [ 11   5   9]
+  [ 11   5   9]
+  [ 10   4   8]]
+
+ [[ 22  11  15]
+  [ 26  15  19]
+  [ 24  13  17]
+  ...
+  [ 11   5   9]
+  [ 10   4   8]
+  [  9   3   7]]]</code></pre>
+</div>
+</div>
+<p>Mit der Funktion <code>plt.imshow</code> kann das Bild in Echtfarben dargestellt werden. Dies funktioniert, da die Funktion die einzelnen Ebenen, hier der letzte Index, des Datensatzes als Farbinformationen (rot, grün, blau) interpretiert. Wäre noch eine vierte Ebene dabei, würde sie als individueller Transparenzwert verwendet worden.</p>
+<div id="3672b814" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(data)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="array_images_files/figure-html/cell-5-output-1.png" width="307" height="416" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Natürlich können auch die einzelnen Farbebenen individuell betrachtet werden. Dazu wird der letzte Index festgehalten.</p>
+<div id="7eb16918" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Als Farbskale wird die Rotskala </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># verwendet 'Reds'</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.imshow( data[:,:,<span class="dv">0</span>], cmap<span class="op">=</span><span class="st">'Reds'</span> )</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="array_images_files/figure-html/cell-6-output-1.png" width="386" height="416" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Da die Bilddaten als Arrays gespeichert sind, sind viele der möglichen Optionen, z.B. zur Teilauswahl oder Operationen, verfügbar. Das untere Beispiel zeigt einen Ausschnitt im Rotkanal des Bildes.</p>
+<div id="c854d8bf" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bereich <span class="op">=</span> np.array(data[<span class="dv">450</span>:<span class="dv">500</span>, <span class="dv">550</span>:<span class="dv">600</span>,<span class="dv">0</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.imshow( bereich, cmap<span class="op">=</span><span class="st">"Greys"</span> )</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="array_images_files/figure-html/cell-7-output-1.png" width="494" height="412" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zwischenübung: Bilder bearbeiten
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Lesen Sie folgendes Bild vom Haspel Campus in Wuppertal ein: <a href="https://firedynamics.github.io/LectureComputerScience/_downloads/592f1fc843fc7c01bdcad17bf85ec15c/campus_haspel.jpeg">Bild</a></p>
+<p>Extrahieren Sie den blauen Anteil und lassen Sie sich die Zeile in der Mitte des Bildes ausgeben, so wie einen beliebigen Bildauschnitt.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="a130651a" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> plt.imread(<span class="st">'01-daten/campus_haspel.jpeg'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>form <span class="op">=</span>  data.shape</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="st">"Form:"</span>, data.shape )</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>blau <span class="op">=</span>  data[:,:,<span class="dv">2</span>]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.imshow(blau, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>zeile <span class="op">=</span>  data[<span class="bu">int</span>(form[<span class="dv">0</span>]<span class="op">/</span><span class="dv">2</span>),:,<span class="dv">2</span>]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(zeile)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>ausschnitt <span class="op">=</span>  data[<span class="dv">10</span>:<span class="dv">50</span>,<span class="dv">10</span>:<span class="dv">50</span>,:]</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.imshow(ausschnitt)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Form: (3024, 4032, 3)
+[221 220 220 ...  28  28  28]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="array_images_files/figure-html/cell-8-output-2.png" width="415" height="412" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -680,11 +838,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../uebungen/uebung.html" class="pagination-link" aria-label="Übung">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Übung</span></span>
+      <a href="../skript/array_read_n_write.html" class="pagination-link" aria-label="Lesen und Schreiben von Dateien">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lesen und Schreiben von Dateien</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../skript/assessment.html" class="pagination-link" aria-label="Lernzielkontrolle">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Lernzielkontrolle</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -692,4 +853,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bausteine-der-datenanalyse/w-python-numpy-grundlagen/blob/main/klausurfragen/klausurfragen.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/bausteine-der-datenanalyse/w-python-numpy-grundlagen/blob/main/skript/array_images.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div></div></footer></body></html>
